@@ -1,27 +1,30 @@
 angular
 .module('itineraryTracker', [
-  'ui.router',
-  'ngResource'
+  'firebase',
+  'ui.router'
+
+  // 'ngResource'
 ])
 .config([
   "$stateProvider",
   RouterFunction
 ])
 .factory("TripFactory", [
-  "$resource",
+  "$firebaseArray",
   TripFactoryFunction
 ])
 .controller("TripIndexController", [
-  "TripFactory",
-  "$stateParams",
+  "$scope",
+"TripFactory",
+  // "$stateParams",
   TripIndexControllerFunction
 ])
 
-function TripFactoryFunction($resource){
-  return $resource("localhost:3000/trips", {}, {
-    update: {method: "PUT"}
-  })
-}
+function TripFactoryFunction($firebaseArray){
+  var ref = firebase.database().ref();
+  return $firebaseArray(ref);
+  }
+
 
 function RouterFunction($stateProvider){
   $stateProvider
@@ -33,11 +36,15 @@ function RouterFunction($stateProvider){
   })
 }
 
-function TripIndexControllerFunction (TripFactory){
-  console.log("this is trip index")
-
-  this.trips = TripFactory.query();
+function TripIndexControllerFunction($scope, TripFactory){
+$scope.trips = TripFactory;
+$scope.trips.$add({
+  content: $scope.trip
+})
 }
+
+  // syncObject.$bindTo($scope, "trips");
+
 // var Trip = $resource('/api/trips')
 // app.controller('IndexCtrl', [
 //   '$scope',

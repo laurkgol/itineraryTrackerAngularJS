@@ -1,1 +1,8 @@
-<h1>hi</h1>
+  <div ng-controller="TripIndexController">
+    <li ng-repeat="trip in trips">
+      {{trip.location}}
+      <input ng-model="trip.location" ng-change="trips.$save(trip)">
+      <button ng-click="trips.$remove(trip)">Delete Message</button>
+    </li>
+
+  </div>
