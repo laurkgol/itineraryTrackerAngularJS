@@ -1,8 +1,15 @@
   <div ng-controller="TripIndexController">
-    <li ng-repeat="trip in trips">
-      {{trip.location}}
+    <div ng-repeat="trip in trips">
+      <h1>{{trip.location}}<h1>
+        <h2>{{trip.time_span}}</h2>
+        <img class="trip-photo" ng-src={{trip.photo_url}}>
       <input ng-model="trip.location" ng-change="trips.$save(trip)">
       <button ng-click="trips.$remove(trip)">Delete Message</button>
-    </li>
-
+    </div>
+    <form ng-submit="addTrip()">
+      <input  type="text"ng-model="location" placeholder="Where"/>
+      <input  type="text"ng-model="time_span" placeholder="When"/>
+      <input type="text" ng-model="photo_url" placeholder="Add Photo URL"/>
+      <button type="submit">Add Trip</button>
+    </form>
   </div>
