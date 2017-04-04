@@ -4,6 +4,8 @@
         <h2>{{trip.time_span}}</h2>
         <img class="trip-photo" ng-src={{trip.photo_url}}>
       <input ng-model="trip.location" ng-change="trips.$save(trip)">
+      <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
+      <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
       <button ng-click="trips.$remove(trip)">Delete Message</button>
     </div>
     <form ng-submit="addTrip()">
