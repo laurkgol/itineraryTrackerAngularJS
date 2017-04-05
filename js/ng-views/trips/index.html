@@ -1,24 +1,28 @@
   <div ng-controller="TripIndexController">
     <div class="trips"ng-repeat="trip in trips">
-      <div class= "trip" style="background-image:url({{trip.photo_url}});">
-      <h1>{{trip.location}}<h1>
-        <p>{{trip.time_span}}</p>
+      <div class="trip-section">
+        <div class= "trip" style="background-image:url({{trip.photo_url}});">
+        <h1>{{trip.location}}<h1>
+          <p>{{trip.time_span}}</p>
+        </div>
+        <div class="edit">
+          <h3>Edit Trip</h3>
+          <input ng-model="trip.location" ng-change="trips.$save(trip)">
+          <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
+          <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
+          <button ng-click="trips.$remove(trip)">Delete Trip</button>
+        </div>
       </div>
-      <div class="edit">
-        <h3>Edit Trip</h3>
-        <input ng-model="trip.location" ng-change="trips.$save(trip)">
-        <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
-        <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
-        <button ng-click="trips.$remove(trip)">Delete Trip</button>
       </div>
 
-      </div>
 
-    </div>
     <form ng-submit="addTrip()">
       <input  type="text"ng-model="location" placeholder="Where"/>
       <input  type="text"ng-model="time_span" placeholder="When"/>
       <input type="text" ng-model="photo_url" placeholder="Add Photo URL"/>
       <button type="submit">Add Trip</button>
     </form>
+
+    <div id="map"></div>
+
   </div>

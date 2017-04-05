@@ -98,8 +98,16 @@ function TripIndexControllerFunction($scope, TripFactory, $firebaseArray){
   //   $scope.photo_url = "",
   //   $scope.title = ""
   // }
+  var map;
+    function initMap() {
+      console.log(map)
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+  }
+  initMap();
 }
-
 // function ActivityIndexControllerFunction($scope, ActivityFactory){
 //   ActivityFactory("Robot Restaurant").$bindTo($scope, "trip")
 // }
