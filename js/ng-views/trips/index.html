@@ -17,7 +17,9 @@
 
 
     <form ng-submit="addTrip()">
-      <input  type="text"ng-model="location" placeholder="Where"/>
+      <input id="pac-input" type="text"ng-model="location" placeholder="Where"/>
+
+     <!-- <input id="pac-input" class="controls" type="text" placeholder="location"> -->
       <input  type="text"ng-model="time_span" placeholder="When"/>
       <input type="text" ng-model="photo_url" placeholder="Add Photo URL"/>
       <button type="submit">Add Trip</button>
