@@ -48,7 +48,7 @@ nav{
   height: 30vh;
 }
 
-.edit{
+#edit{
   background-color: red;
   width: 25%;
   padding: 5%;
@@ -61,6 +61,7 @@ nav{
   padding-top: 5px;
   padding-bottom: 5px;
   justify-content: space-around;
+  /*display: none;*/
 }
 
 .trip-section{
@@ -69,6 +70,25 @@ nav{
 
 #map{
   height: 100vh;
+  width: 50%;
   border-style: solid;
 
+}
+
+/*.flex{
+  display: flex;
+  flex-direction: column;
+}*/
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.trips, .map-add{
+  /*display: inline-block;
+  float: right;*/
 }

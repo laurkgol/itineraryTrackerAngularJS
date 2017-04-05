@@ -11,13 +11,14 @@ angular
   "$firebaseArray",
   TripFactoryFunction
 ])
-// .factory("ActivityFactory", [
-//   "$firebaseObject",
-//   ActivityFactoryFunction
-// ])
+.factory("ActivityFactory", [
+  "$firebaseObject",
+  ActivityFactoryFunction
+])
 .controller("TripIndexController", [
   "$scope",
 "TripFactory",
+"ActivityFactory",
   TripIndexControllerFunction
 ])
 // .controller("ActivityIndexController", [
@@ -39,10 +40,10 @@ function TripFactoryFunction($firebaseArray){
 
   }
 
-  // function ActivityFactoryFunction($firebaseObject){
-  //   var ref = firebase.database().ref().child("activity");
-  //   return $firebaseArray(ref);
-  //   }
+  function ActivityFactoryFunction($firebaseObject){
+    var ref = firebase.database().ref().child("activity");
+    return $firebaseObject(ref);
+    }
 
 // function ActivityFactoryFunction($firebaseObject){
 //   return function(title){
@@ -69,9 +70,12 @@ function RouterFunction($stateProvider){
 
 }
 
-function TripIndexControllerFunction($scope, TripFactory, $firebaseArray){
+function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
+  $firebaseArray, $firebaseObject){
   $scope.trips = TripFactory;
   $scope.addTrip = function(){
+    var userInput = $("#pac-input").val();
+    $scope.location = userInput
     $scope.trips.$add({
       location: $scope.location,
       time_span: $scope.time_span,
@@ -82,35 +86,57 @@ function TripIndexControllerFunction($scope, TripFactory, $firebaseArray){
     $scope.time_span = "",
     $scope.photo_url = ""
   }
-
+  // $scope.trip = ActivityFactory
   // $scope.addActivity = function(){
-  //     ref = new Firebase("https://console.firebase.google.com/project/itinerarytracker/database/data/0/activity")
-  //
-  //     console.log(ref)
-  //     $scope.trips[0].$add({
-  //     date: $scope.date,
-  //     description: $scope.description,
-  //     photo_url: $scope.photo_url,
-  //     title: $scope.title
-  //   });
-  //   $scope.date ="",
-  //   $scope.description = "",
-  //   $scope.photo_url = "",
-  //   $scope.title = ""
-  // }
+  //push $stateProvider
+// which trip?
+// retrieve trip
+// $scope.trip.activity.$add({
+//
+// })
+//       console.log(ref)
+//       $scope.trips[0].$add({
+//       date: $scope.date,
+//       description: $scope.description,
+//       photo_url: $scope.photo_url,
+//       title: $scope.title
+//     });
+//     $scope.date ="",
+//     $scope.description = "",
+//     $scope.photo_url = "",
+//     $scope.title = ""
+//   }
   var map;
     function initMap() {
       console.log(map)
       map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
+        center: {lat: 0, lng: 0},
         zoom: 2
 
       });
       var input = document.getElementById('pac-input');
       var autocomplete = new google.maps.places.Autocomplete(input);
-      
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+
+      var userInput = $("#pac-input").val();
+      $scope.location = userInput
+      console.log(userInput)
+      IsplaceChange = true;
+      });
+      var marker = new google.maps.Marker({
+          position: {lat: 0, lng: 0},
+          map: map,
+          title: 'Hello World!'
+        });
+
   }
   initMap();
+
+  // addMarker = function(){
+  //   var place = autocomplete.getPlace();
+  //   console.log(place)
+  // }
 }
 // function ActivityIndexControllerFunction($scope, ActivityFactory){
 //   ActivityFactory("Robot Restaurant").$bindTo($scope, "trip")
