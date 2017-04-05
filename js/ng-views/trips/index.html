@@ -1,15 +1,19 @@
   <div ng-controller="TripIndexController">
-    <div ng-repeat="trip in trips">
+    <div class="trips"ng-repeat="trip in trips">
+      <div class= "trip" style="background-image:url({{trip.photo_url}});">
       <h1>{{trip.location}}<h1>
-        <h2>{{trip.time_span}}</h2>
-        <img class="trip-photo" ng-src={{trip.photo_url}}>
-        <div ng-repeat="activity in trip.activity">
-          <h3>{{activity.Title}}</h3>
-        </div>
-      <input ng-model="trip.location" ng-change="trips.$save(trip)">
-      <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
-      <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
-      <button ng-click="trips.$remove(trip)">Delete Message</button>
+        <p>{{trip.time_span}}</p>
+      </div>
+      <div class="edit">
+        <h3>Edit Trip</h3>
+        <input ng-model="trip.location" ng-change="trips.$save(trip)">
+        <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
+        <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
+        <button ng-click="trips.$remove(trip)">Delete Trip</button>
+      </div>
+
+      </div>
+
     </div>
     <form ng-submit="addTrip()">
       <input  type="text"ng-model="location" placeholder="Where"/>
