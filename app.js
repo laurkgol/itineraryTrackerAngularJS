@@ -29,13 +29,20 @@ angular
 .controller("TripShowController", [
   "$scope",
   "TripFactory",
+  "ActivityFactory",
   "$stateParams",
   TripShowControllerFunction
 ])
 function TripFactoryFunction($firebaseArray){
   var ref = firebase.database().ref();
   return $firebaseArray(ref);
+
   }
+
+  // function ActivityFactoryFunction($firebaseObject){
+  //   var ref = firebase.database().ref().child("activity");
+  //   return $firebaseArray(ref);
+  //   }
 
 // function ActivityFactoryFunction($firebaseObject){
 //   return function(title){
