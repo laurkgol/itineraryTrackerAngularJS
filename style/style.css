@@ -1,6 +1,11 @@
 *{
   margin: 0;
 }
+h1{
+  color: white;
+  text-shadow: 2px 2px hsla(212, 4%, 50%, 0.66);
+
+}
 body{
   font-family: sans-serif;
   font-size: 15px;
@@ -32,7 +37,7 @@ nav{
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 150vh;
   overflow-y:scroll
 
 }
@@ -104,4 +109,8 @@ nav{
   align-content: center;
   height: 100vh;
 
+}
+.trip-add-form{
+  background-color: blue;
+  padding:5px;
 }

@@ -61,22 +61,26 @@ function RouterFunction($stateProvider){
     controller: "TripIndexController",
     controllerAs: "vm"
   })
-  .state("TripShow", {
-    url: "/trips/:id",
-    templateUrl: "js/ng-views/trips/show.html",
-    controller: "TripShowController",
-    controllerAs: "vm"
-  })
+  // .state("TripShow", {
+  //   url: "/trips/:id",
+  //   templateUrl: "js/ng-views/trips/show.html",
+  //   controller: "TripShowController",
+  //   controllerAs: "vm"
+  // })
 
 }
 
 function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
   $firebaseArray, $firebaseObject){
+    //defines trips
   $scope.trips = TripFactory;
+  //adds trips
   $scope.addTrip = function(){
+    //adds autocomplete value to $scope.location
     var userInput = $("#pac-input").val();
     $scope.location = userInput
     $scope.trips.$add({
+      //adds input from form to db
       location: $scope.location,
       time_span: $scope.time_span,
       photo_url: $scope.photo_url,
@@ -85,6 +89,7 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
     $scope.location ="",
     $scope.time_span = "",
     $scope.photo_url = ""
+    //determines lat and long from location input
     function getLatLong(){
       var geocoder = new google.maps.Geocoder();
 
@@ -101,26 +106,7 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
   }
   getLatLong()
 }
-  // $scope.trip = ActivityFactory
-  // $scope.addActivity = function(){
-  //push $stateProvider
-// which trip?
-// retrieve trip
-// $scope.trip.activity.$add({
-//
-// })
-//       console.log(ref)
-//       $scope.trips[0].$add({
-//       date: $scope.date,
-//       description: $scope.description,
-//       photo_url: $scope.photo_url,
-//       title: $scope.title
-//     });
-//     $scope.date ="",
-//     $scope.description = "",
-//     $scope.photo_url = "",
-//     $scope.title = ""
-//   }
+//adds google map to page from API
   var map;
     function initMap() {
       console.log(map)
