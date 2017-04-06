@@ -9,3 +9,6 @@
 
 #Gold
 -The user can add activities to Google calendar
+
+
+icon credit: Maps Icons Collection https://mapicons.mapsmarker.com

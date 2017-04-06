@@ -79,9 +79,25 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
     //adds autocomplete value to $scope.location
     var userInput = $("#pac-input").val();
     $scope.location = userInput
+    //determines lat and long from location input
+    $scope.getLatLong = function(){
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        'address': $scope.location
+      }, function(results, status) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            console.log(latitude);
+            console.log(longitude);
+          })
+ }
+
+      $scope.getLatLong()
     $scope.trips.$add({
+
       //adds input from form to db
       location: $scope.location,
+
       time_span: $scope.time_span,
       photo_url: $scope.photo_url,
       timestamp: firebase.database.ServerValue.TIMESTAMP
@@ -89,30 +105,14 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
     $scope.location ="",
     $scope.time_span = "",
     $scope.photo_url = ""
-    //determines lat and long from location input
-    function getLatLong(){
-      var geocoder = new google.maps.Geocoder();
 
-      geocoder.geocode({
-          'address': $scope.location
-      }, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-              var latitude = results[0].geometry.location.lat();
-              var longitude = results[0].geometry.location.lng();
-              console.log(latitude)
-            }
-          })
-
-  }
-  getLatLong()
 }
 //adds google map to page from API
   var map;
     function initMap() {
-      console.log(map)
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 0, lng: 0},
-        zoom: 2
+        zoom: 1
 
       });
       var input = document.getElementById('pac-input');
@@ -127,11 +127,24 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
       console.log(userInput)
       IsplaceChange = true;
       });
-      var marker = new google.maps.Marker({
-          position: {lat: 0, lng: 0},
+      var Tokyomarker = new google.maps.Marker({
+          position: {lat: 35.6894875, lng: 139.69170639999993},
           map: map,
-          title: 'Hello World!'
+          // icon: "./footprint.png",
+          title: 'Tokyo, Japan'
         });
+      var Istanbulmarker = new google.maps.Marker({
+            position: {lat: 33.740962, lng: -84.35731699999997},
+            map: map,
+            // icon: "./footprint.png",
+            title: 'Istanbul, Turkey'
+          });
+          var DRmarker = new google.maps.Marker({
+                position: {lat: 18.5820101, lng: 18.5820101},
+                map: map,
+                // icon: "./footprint.png",
+                title: 'Punta Cana, Domincan Republic'
+              });
 
   }
   initMap();
