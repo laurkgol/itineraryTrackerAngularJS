@@ -61,7 +61,7 @@ nav{
 }
 
 #edit{
-  background-color: red;
+  background-color: #CC3C14;
   width: 60%;
   padding: 5%;
   margin-left: 5%;
@@ -83,7 +83,7 @@ nav{
 #map{
   height: 60vh;
   width: 100%;
-  border-style: solid;
+  /*border-style: solid;*/
 
 }
 
@@ -109,8 +109,13 @@ nav{
   align-content: center;
   height: 100vh;
 
+
 }
 .trip-add-form{
-  background-color: blue;
+  background-color: #CC3C14;
   padding:5px;
+}
+h3{
+  box-shadow: 2px 2px hsla(212, 4%, 50%, 0.66);
+  color: white;
 }
