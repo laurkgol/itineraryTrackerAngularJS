@@ -85,7 +85,22 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
     $scope.location ="",
     $scope.time_span = "",
     $scope.photo_url = ""
+    function getLatLong(){
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({
+          'address': $scope.location
+      }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+              var latitude = results[0].geometry.location.lat();
+              var longitude = results[0].geometry.location.lng();
+              console.log(latitude)
+            }
+          })
+
   }
+  getLatLong()
+}
   // $scope.trip = ActivityFactory
   // $scope.addActivity = function(){
   //push $stateProvider
@@ -115,7 +130,9 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
 
       });
       var input = document.getElementById('pac-input');
-      var autocomplete = new google.maps.places.Autocomplete(input);
+      var autocomplete = new google.maps.places.Autocomplete(input, {
+      types: ['(cities)']
+  });
       google.maps.event.addListener(autocomplete, 'place_changed', function() {
       var place = autocomplete.getPlace();
 
