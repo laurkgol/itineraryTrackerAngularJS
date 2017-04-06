@@ -87,8 +87,12 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
       }, function(results, status) {
             var latitude = results[0].geometry.location.lat();
             var longitude = results[0].geometry.location.lng();
-            console.log(latitude);
-            console.log(longitude);
+            var marker = new google.maps.Marker({
+                position: {lat: latitude, lng: longitude},
+                map: map,
+                // icon: "./footprint.png",
+                title: $scope.location
+              });
           })
  }
 
