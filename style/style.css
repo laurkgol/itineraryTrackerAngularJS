@@ -1,6 +1,6 @@
-/**{
+*{
   margin: 0;
-}*/
+}
 body{
   font-family: sans-serif;
   font-size: 15px;
@@ -29,11 +29,18 @@ nav{
 
 }
 .trips{
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  height: 75vh;
+  overflow-y:scroll
+
+}
+.trip-title{
+  margin: 10px;
 }
 .trip{
-  width: 75%;
+  width: 60%;
   background-size: cover;
   padding: 5%;
   margin-left: 5%;
@@ -50,7 +57,7 @@ nav{
 
 #edit{
   background-color: red;
-  width: 75%;
+  width: 60%;
   padding: 5%;
   margin-left: 5%;
   margin-right: 5%;
@@ -69,7 +76,7 @@ nav{
 }
 
 #map{
-  height: 100vh;
+  height: 60vh;
   width: 100%;
   border-style: solid;
 
@@ -78,6 +85,8 @@ nav{
 .flex{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
 }
 .clearfix:after {
   visibility: hidden;
@@ -88,7 +97,11 @@ nav{
   height: 0;
 }
 
-.trips, .map-add{
-  /*display: inline-block;
-  float: right;*/
+.map-add{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+
 }

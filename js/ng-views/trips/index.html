@@ -1,6 +1,8 @@
   <div class="flex" ng-controller="TripIndexController">
+    <!-- <h1 id="trip-title">My Trips</h1> -->
     <div class="trips">
-      <div ng-repeat="trip in trips">
+
+      <div  ng-repeat="trip in trips">
         <div class="trip-section">
           <div class= "trip" style="background-image:url({{trip.photo_url}});">
             <h1>{{trip.location}}<h1>
