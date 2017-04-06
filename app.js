@@ -134,13 +134,13 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
           title: 'Tokyo, Japan'
         });
       var Istanbulmarker = new google.maps.Marker({
-            position: {lat: 33.740962, lng: -84.35731699999997},
+            position: {lat: 41.0082, lng: 28.9784},
             map: map,
             // icon: "./footprint.png",
             title: 'Istanbul, Turkey'
           });
           var DRmarker = new google.maps.Marker({
-                position: {lat: 18.5820101, lng: 18.5820101},
+                position: {lat: 18.5820, lng: -68.4055},
                 map: map,
                 // icon: "./footprint.png",
                 title: 'Punta Cana, Domincan Republic'
