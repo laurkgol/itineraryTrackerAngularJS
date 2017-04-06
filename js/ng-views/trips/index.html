@@ -1,33 +1,34 @@
   <div class="flex" ng-controller="TripIndexController">
-    <div class="trips"ng-repeat="trip in trips">
-      <div class="trip-section">
-        <div class= "trip" style="background-image:url({{trip.photo_url}});">
-        <h1>{{trip.location}}<h1>
-          <p>{{trip.time_span}}</p>
-          <!-- <button onClick="document.getElementById('edit').style.display = 'inline';å">Edit</button> -->
+    <div class="trips">
+      <div ng-repeat="trip in trips">
+        <div class="trip-section">
+          <div class= "trip" style="background-image:url({{trip.photo_url}});">
+            <h1>{{trip.location}}<h1>
+            <p>{{trip.time_span}}</p>
+            <!-- <button onClick="document.getElementById('edit').style.display = 'inline';å">Edit</button> -->
+          </div>
+            <div id="edit">
+              <h3>Edit Trip</h3>
+              <input ng-model="trip.location" ng-change="trips.$save(trip)">
+              <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
+              <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
+              <button ng-click="trips.$remove(trip)">Delete Trip</button>
+            </div>
+            <!-- <div class="activity"ng-repeat="activity in trip.activity">
+            {{activity.date}}
+             <h2>{{activity.title}}</h2>
+            <p>{{activity.date}}</p>
+            <p>{{activity.description}}</p> -->
+            <!-- <img class="trip-photo" ng-src={{activity.photo_url}}> -->
+          </div>
+          <!-- <h3>Edit Activity</h3>
+            <input  type="text"ng-model="trip.activity.title" ng-change="trip.activity.$save(activity)"/>
+            <input  type="text"ng-model="trip.activity.date" ng-change="trip.activity.$save(activity)"/>
+            <input type="text" ng-model="trip.activity.description" ng-change="trip.activity.$save(activity)"/>
+            <input type="text" ng-model="trip.activity.photo_url" ng-change="trip.activity.$save(activity)"/>
+            <button ng-click="trip.activity.$remove(trip)">Delete Activity</button> -->
         </div>
-        <div id="edit">
-          <h3>Edit Trip</h3>
-          <input ng-model="trip.location" ng-change="trips.$save(trip)">
-          <input ng-model="trip.time_span" ng-change="trips.$save(trip)">
-          <input ng-model="trip.photo_url" ng-change="trips.$save(trip)">
-          <button ng-click="trips.$remove(trip)">Delete Trip</button>
-        </div>
-        <!-- <div class="activity"ng-repeat="activity in trip.activity">
-          {{activity.date}}
-           <h2>{{activity.title}}</h2>
-          <p>{{activity.date}}</p>
-          <p>{{activity.description}}</p> -->
-          <img class="trip-photo" ng-src={{activity.photo_url}}>
-        </div>
-        <!-- <h3>Edit Activity</h3>
-          <input  type="text"ng-model="trip.activity.title" ng-change="trip.activity.$save(activity)"/>
-          <input  type="text"ng-model="trip.activity.date" ng-change="trip.activity.$save(activity)"/>
-          <input type="text" ng-model="trip.activity.description" ng-change="trip.activity.$save(activity)"/>
-          <input type="text" ng-model="trip.activity.photo_url" ng-change="trip.activity.$save(activity)"/>
-          <button ng-click="trip.activity.$remove(trip)">Delete Activity</button> -->
-      </div>
-      </div>
+    </div>
       <div class="clearfix"></div>
       <div class = "map-add">
           <form ng-submit="addTrip()">
