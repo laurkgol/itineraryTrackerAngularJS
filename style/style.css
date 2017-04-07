@@ -137,4 +137,8 @@ h3{
 .welcome-container{
   background-color: hsla(301, 2%, 50%, 0.5);
   padding: 20px;
+  border-radius: 25px;
+}
+.welcome-container:hover{
+  box-shadow: 5px 5px hsla(212, 4%, 50%, 0.66);
 }
