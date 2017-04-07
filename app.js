@@ -21,6 +21,9 @@ angular
 "ActivityFactory",
   TripIndexControllerFunction
 ])
+.controller("WelcomeController", [
+  WelcomeControllerFunction
+])
 // .controller("ActivityIndexController", [
 //   "$scope",
 //   "$firebaseArray",
@@ -61,6 +64,12 @@ function RouterFunction($stateProvider){
     controller: "TripIndexController",
     controllerAs: "vm"
   })
+  .state("WelcomeIndex", {
+    url: "/",
+    templateUrl: "js/ng-views/welcome.html",
+    controller: "WelcomeController",
+    controllerAs: "vm"
+  })
   // .state("TripShow", {
   //   url: "/trips/:id",
   //   templateUrl: "js/ng-views/trips/show.html",
@@ -68,6 +77,9 @@ function RouterFunction($stateProvider){
   //   controllerAs: "vm"
   // })
 
+}
+function WelcomeControllerFunction(){
+  console.log("welcome!")
 }
 
 function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
@@ -93,6 +105,7 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
                 // icon: "./footprint.png",
                 title: $scope.location
               });
+
           })
  }
 
@@ -101,7 +114,8 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
 
       //adds input from form to db
       location: $scope.location,
-
+      // latitude: latitude,
+      // longitude: longitude,
       time_span: $scope.time_span,
       photo_url: $scope.photo_url,
       timestamp: firebase.database.ServerValue.TIMESTAMP
@@ -149,6 +163,11 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
                 // icon: "./footprint.png",
                 title: 'Punta Cana, Domincan Republic'
               });
+        for(var i = 0; i > $scope.trips.length; i++){
+          if(latitude == true && longitude == true){
+            console.log(latitude)
+          }
+        }
 
   }
   initMap();

@@ -48,7 +48,7 @@ nav{
   margin: 10px;
 }
 .trip{
-  width: 50%;
+  width: 70%;
   background-size: cover;
   padding: 5%;
   margin-left: 5%;
@@ -65,7 +65,7 @@ nav{
 
 #edit{
   background-color: #CC3C14;
-  width: 50%;
+  width: 70%;
   padding: 5%;
   margin-left: 5%;
   margin-right: 5%;
@@ -113,7 +113,7 @@ nav{
   justify-content: center;
   align-content: center;
   height: 100vh;
-  width: 75%;
+  width: 70%;
 
 
 }
@@ -124,4 +124,17 @@ nav{
 h3{
   box-shadow: 2px 2px hsla(212, 4%, 50%, 0.66);
   color: white;
+}
+.welcome{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/25520_891512100498_294435_n.jpg?oh=b9844ab4438d6a8fc03155f267c1cb03&oe=596038D1");
+  background-size: cover;
+}
+.welcome-container{
+  background-color: hsla(301, 2%, 50%, 0.5);
+  padding: 20px;
 }
