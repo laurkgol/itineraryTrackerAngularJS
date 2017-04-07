@@ -102,7 +102,7 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
             var marker = new google.maps.Marker({
                 position: {lat: latitude, lng: longitude},
                 map: map,
-                // icon: "./footprint.png",
+                // icon: "footprint.png",
                 title: $scope.location
               });
 
@@ -148,19 +148,19 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
       var Tokyomarker = new google.maps.Marker({
           position: {lat: 35.6894875, lng: 139.69170639999993},
           map: map,
-          // icon: "./footprint.png",
+          icon: 'footprint.png',
           title: 'Tokyo, Japan'
         });
       var Istanbulmarker = new google.maps.Marker({
             position: {lat: 41.0082, lng: 28.9784},
             map: map,
-            // icon: "./footprint.png",
+            icon: 'footprint.png',
             title: 'Istanbul, Turkey'
           });
           var DRmarker = new google.maps.Marker({
                 position: {lat: 18.5820, lng: -68.4055},
                 map: map,
-                // icon: "./footprint.png",
+                icon: 'footprint.png',
                 title: 'Punta Cana, Domincan Republic'
               });
         for(var i = 0; i > $scope.trips.length; i++){
