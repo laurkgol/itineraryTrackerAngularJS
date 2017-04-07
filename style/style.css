@@ -133,12 +133,19 @@ h3{
   height: 100vh;
   background-image: url("https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/25520_891512100498_294435_n.jpg?oh=b9844ab4438d6a8fc03155f267c1cb03&oe=596038D1");
   background-size: cover;
+  border-style:solid;
+	border-color:#bbb #888 #666 #aaa;
+	border-width:3px 4px 4px 3px;
 }
 .welcome-container{
   background-color: hsla(301, 2%, 50%, 0.5);
-  padding: 20px;
+  padding: 50px;
   border-radius: 25px;
 }
 .welcome-container:hover{
   box-shadow: 5px 5px hsla(212, 4%, 50%, 0.66);
+  cursor:pointer;
+  border-color: #666 #aaa #bbb #888;
+	border-width:4px 3px 3px 4px;
+	color:#000;
 }
