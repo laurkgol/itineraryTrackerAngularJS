@@ -102,6 +102,7 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
             var marker = new google.maps.Marker({
                 position: {lat: latitude, lng: longitude},
                 map: map,
+                icon: 'footprint.png',
                 // icon: "footprint.png",
                 title: $scope.location
               });
