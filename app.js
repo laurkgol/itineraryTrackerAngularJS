@@ -164,6 +164,12 @@ function TripIndexControllerFunction($scope, TripFactory, ActivityFactory,
                 icon: 'footprint.png',
                 title: 'Punta Cana, Domincan Republic'
               });
+          var DRmarker = new google.maps.Marker({
+                position: {lat: -34.6037, lng: -58.3816},
+                map: map,
+                icon: 'footprint.png',
+                title: 'Buenos Aires, Argentina'
+                  });
         for(var i = 0; i > $scope.trips.length; i++){
           if(latitude == true && longitude == true){
             console.log(latitude)
