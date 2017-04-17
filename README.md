@@ -1,3 +1,8 @@
+## Technology Used
+-AngularJS
+-Firebase
+-Google Maps API
+
 ## User Stories
 #MVP
 -The user is a traveler that would like to keep track of their trips to track cities they have visited
@@ -15,3 +20,6 @@
 
 
 icon credit: Maps Icons Collection https://mapicons.mapsmarker.com
+
+#Note
+-I'm still working on persistance for markers
